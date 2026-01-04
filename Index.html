@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>META OPS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Segoe+UI:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header-with-lang">
+    <div class="lang-switcher" id="langSwitcher">
+      <button class="lang-btn active" data-lang="fr">FR</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="es">ES</button>
+    </div>
+    <h1>🔥 META OPS</h1>
+    <p id="subtitle">Warzone 3.0 & Black Ops 7 — Builds optimisés après chaque patch</p>
+  </header>
+
+  <div class="admin-bar" id="adminBar">
+    <button id="adminBtn">🔐 Mode Admin</button>
+  </div>
+
+  <nav>
+    <button id="btn-wz" class="active">Warzone 3.0</button>
+    <button id="btn-bo7">Black Ops 7 (Multi)</button>
+  </nav>
+
+  <div class="submit-bar" id="submitBar">
+    <button id="submitBuildBtn">📤 Soumettre un build</button>
+  </div>
+
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="🔍 Rechercher arme, accessoire ou tag (ex: VLK, CQC, recoil)..." aria-label="Rechercher une arme" />
+  </div>
+
+  <div class="filter-container" id="filterContainer"></div>
+
+  <main id="content">
+    <!-- Armes injectées ici -->
+  </main>
+
+  <!-- Panel Admin -->
+  <div id="adminPanel" class="admin-panel">
+    <div class="admin-actions-top">
+      <h3 class="admin-title">➕ Gestion des armes</h3>
+      <div class="admin-utils">
+        <button id="exportBtn" class="util-btn">📥 Exporter</button>
+        <label for="importInput" class="util-btn file-label">📤 Importer</label>
+        <input type="file" id="importInput" accept=".json" />
+        <button id="restoreBackupBtn" class="util-btn">♻️ Restaurer backup</button>
+      </div>
+    </div>
+
+    <form id="weaponForm">
+      <div class="form-group">
+        <label for="gameSelect">🎮 Jeu</label>
+        <select id="gameSelect" required>
+          <option value="wz">Warzone 3.0</option>
+          <option value="bo7">Black Ops 7 (Multi)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="weaponName">🪄 Nom de l'arme</label>
+        <input type="text" id="weaponName" placeholder="Ex: MCW 6.8" required />
+      </div>
+      <div class="form-group">
+        <label for="weaponCategory">🏷️ Catégorie</label>
+        <input type="text" id="weaponCategory" placeholder="Ex: AR, SMG..." required />
+      </div>
+      <div class="form-group">
+        <label for="weaponTags">🔖 Tags (optionnel)</label>
+        <input type="text" id="weaponTags" placeholder="cqc, low-recoil, sniper..." />
+      </div>
+      <div class="form-group">
+        <label for="weaponImage">🖼️ URL image (optionnel)</label>
+        <input type="url" id="weaponImage" placeholder="https://exemple.com/arme.jpg" />
+      </div>
+      <div class="form-group">
+        <label for="weaponDesc">📝 Description</label>
+        <textarea id="weaponDesc" placeholder="Décrivez l'arme..." required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="accessories">⚙️ Accessoires (séparés par virgule)</label>
+        <input type="text" id="accessories" placeholder="Canon, Optique, Poignée..." required />
+      </div>
+      <button type="submit" id="addWeaponBtn">➕ Ajouter l'arme</button>
+    </form>
+  </div>
+
+  <footer>
+    <p>© 2026 META OPS — <span id="lastUpdate"></span></p>
+  </footer>
+
+  <!-- MODAL GÉNÉRIQUE (utilisé pour édition & soumission) -->
+  <div id="editModal" class="modal" role="dialog">
+    <div class="modal-content">
+      <!-- Rempli dynamiquement -->
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
